@@ -140,9 +140,8 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label4.Location = new System.Drawing.Point(12, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 15);
+            this.label4.Size = new System.Drawing.Size(0, 15);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Попытка: 1";
             // 
             // Autorisation
             // 
@@ -159,7 +158,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pass);
             this.Controls.Add(this.log);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Autorisation";
             this.Text = "Шеховцов 21ИС";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Exit);

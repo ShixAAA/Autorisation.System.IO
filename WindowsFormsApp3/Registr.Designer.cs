@@ -105,7 +105,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pass);
             this.Controls.Add(this.log);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Registr";
             this.Text = "Registr";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Exit);

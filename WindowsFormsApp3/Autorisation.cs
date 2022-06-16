@@ -16,7 +16,7 @@ namespace WindowsFormsApp3
     {
         public string path = Directory.GetCurrentDirectory() + "\\LogPass.txt";
 
-        public int count = 0;
+        public int count = 3;
         public Autorisation()
         {
             InitializeComponent();
@@ -24,6 +24,7 @@ namespace WindowsFormsApp3
             log.UseSystemPasswordChar = true;
             pass.UseSystemPasswordChar = true;
             button3.Visible = false;
+            label4.Text = "Осталось попыток: 3";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,34 +41,28 @@ namespace WindowsFormsApp3
         private void button2_Click(object sender, EventArgs e)
         {
             Registr registr = new Registr();
-            string login, password;
-            StreamReader sr = new StreamReader(File.Open(path, FileMode.Open));
             if (log.Text == "" || pass.Text == "")
             {
                 MessageBox.Show("Нельзя оставлять поле пустым!");
             }
-            using (sr)
+
+            foreach (string line in File.ReadLines(path))
             {
-                login = sr.ReadLine();
-                password = sr.ReadLine();
-                sr.Close();
-            }
-            if (log.Text == login && pass.Text == password)
-            {
-                NewForm newForm = new NewForm();
-                newForm.Show();
-                this.Hide();
-            }
-            else
-            {
-                count++;
-                label4.Text = $"Попытка: {count + 1}";
-                if (count == 3)
+                if(line == log.Text + ":" + pass.Text)
                 {
-                    MessageBox.Show("Превышен лимит попыток");
-                    Application.Exit();
+                    NewForm newForm = new NewForm();
+                    newForm.Show();
+                    this.Hide();
                 }
             }
+            count -= 1;
+            if (count == 0)
+            {
+                MessageBox.Show("Превышен лимит попыток");
+                Application.Exit();
+            }
+            label4.Text = $"Осталось попыток: {count}";
+
         }
 
         private void button3_Click(object sender, EventArgs e)

@@ -37,11 +37,11 @@ namespace WindowsFormsApp3
                 {
                     if (!File.Exists(autorisation.path))
                     {
-                        File.AppendAllText(autorisation.path, $"{log.Text}\n{pass.Text}\n");
+                        File.AppendAllText(autorisation.path, $"{log.Text}:{pass.Text}\n");
                     }
                     else if (File.Exists(autorisation.path))
                     {
-                        File.AppendAllText(autorisation.path, $"{log.Text}\n{pass.Text}");
+                        File.AppendAllText(autorisation.path, $"{log.Text}:{pass.Text}\n");
                     }
                     MessageBox.Show("Пользователь зарегистрирован!");
                 }               

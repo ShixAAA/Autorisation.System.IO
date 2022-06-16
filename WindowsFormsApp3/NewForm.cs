@@ -19,22 +19,23 @@ namespace WindowsFormsApp3
             StartPosition = FormStartPosition.CenterScreen;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            DialogResult dialog = MessageBox.Show("Вы действительно хотите выйти из программы, при этом потеряв все данные?", "Завершение программы", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            Application.Exit();
-            Autorisation autorisation = new Autorisation();
-            using (FileStream fs = new FileStream(autorisation.path, FileMode.Open, FileAccess.ReadWrite))
-            {
-                fs.SetLength(0);
-            }
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             Autorisation autorisation = new Autorisation();
             autorisation.Show();
             this.Hide();
+        }
+
+        private void Exit(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void NewForm_Load(object sender, EventArgs e)
+        {
+            Autorisation autorisation = new Autorisation();
+            StreamReader sr = new StreamReader(autorisation.path);
+            richTextBox1.Text = sr.ReadToEnd();
         }
     }
 }

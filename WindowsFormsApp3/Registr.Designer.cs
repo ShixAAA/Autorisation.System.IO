@@ -34,6 +34,7 @@
             this.pass = new System.Windows.Forms.TextBox();
             this.log = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -94,11 +95,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.label3.Location = new System.Drawing.Point(21, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(257, 24);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Регистрация пользователя";
+            // 
             // Registr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(299, 311);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
@@ -122,5 +134,6 @@
         private System.Windows.Forms.TextBox pass;
         private System.Windows.Forms.TextBox log;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label3;
     }
 }

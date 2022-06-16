@@ -36,6 +36,7 @@ namespace WindowsFormsApp3
             Autorisation autorisation = new Autorisation();
             StreamReader sr = new StreamReader(autorisation.path);
             richTextBox1.Text = sr.ReadToEnd();
+            sr.Close();
         }
     }
 }
